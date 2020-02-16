@@ -2,11 +2,16 @@ module.exports = class DepthCalculator {
   calculateDepth(arr) {
     let result = 1;
     for (let i = 0; i < arr.length; i += 1) {
-      if (Array.isArray(arr[i])) {
+      let el = arr[i];
+      if (Array.isArray(el)) {
         result += 1;
-        calculateDepth(arr[i]);
+        calculateDepth(el);
       }
+      return result;
     }
-    return result;
   }
 };
+// function replicate(times, number) {
+//   if (times < 1) return []
+//   else return [number].concat(replicate(times-1, number))
+// }
